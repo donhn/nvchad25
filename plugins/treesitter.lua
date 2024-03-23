@@ -8,6 +8,7 @@ return {
       "bash",
       "cpp",
       "c",
+      "markdown",
     },
     indent = {
       enable = true,
