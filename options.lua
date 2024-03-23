@@ -1,6 +1,10 @@
 require "nvchad.options"
+vim.opt.clipboard = ""
 
--- add yours here!
+-- Set relative number on by default.
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.colorcolumn = "81"
 
--- local o = vim.o
--- o.cursorlineopt ='both' -- to enable cursorline!
+-- snippet path
+vim.g.vscode_snippets_path = vim.fn.stdpath "config" .. "/lua/custom/snippets/"
