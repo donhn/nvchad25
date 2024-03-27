@@ -6,10 +6,10 @@ local map = vim.keymap.set
 -- General
 ---------------------------------------------------------------------
 
-map("n", "sh", "<C-w>h", { desc = "viewport left" })
-map("n", "sl", "<C-w>l", { desc = "viewport right" })
-map("n", "sk", "<C-w>k", { desc = "viewport up" })
-map("n", "sj", "<C-w>j", { desc = "viewport down" })
+-- map("n", "sh", "<C-w>h", { desc = "viewport left" })
+-- map("n", "sl", "<C-w>l", { desc = "viewport right" })
+-- map("n", "sk", "<C-w>k", { desc = "viewport up" })
+-- map("n", "sj", "<C-w>j", { desc = "viewport down" })
 
 map("n", "<C-h>", ":vertical resize -5<CR>", { desc = "reduce vertical size" })
 map("n", "<C-l>", ":vertical resize +5<CR>", { desc = "increase vertical size" })
@@ -18,7 +18,7 @@ map("n", "<C-k>", ":horizontal resize +5<CR>", { desc = "increase horizontal siz
 
 map({ "n", "v" }, "x", '"_x', { desc = "blackhole delete" })
 
-map("n", "<leader>td", ":TodoTelescope keywords=TODO<CR>", { desc = "List TODOs" })
+map("n", "<leader>ftd", ":TodoTelescope keywords=TODO<CR>", { desc = "List TODOs" })
 map("n", "<leader>gg", ":LazyGit<CR>", { desc = "LazyGit" })
 
 ---------------------------------------------------------------------
@@ -29,6 +29,7 @@ map("n", "<leader>fm", function()
 end, { desc = "LSP Formatting" })
 
 map("n", "<leader>oc", ":silent !code %<CR>", { desc = "Open current file in VS Code", silent = true })
+
 map("n", "<leader>db", "<cmd> DapToggleBreakpoint <CR>", { desc = "Add breakpoint at line" })
 map("n", "<leader>dr", "<cmd> DapContinue <CR>", { desc = "Start or continue the debugger" })
 
@@ -48,3 +49,15 @@ map("n", "<leader>fn", "<cmd> Navbuddy<CR>", { desc = "Navbuddy" })
 map("n", "<leader>tf", function()
   require("flash").toggle()
 end, { desc = "Toggle Flash Search" })
+
+---------------------------------------------------------------------
+-- Scissors
+---------------------------------------------------------------------
+vim.api.nvim_create_user_command("EditSnippet", function()
+  require("scissors").editSnippet()
+end, { desc = "Edit nvim-scissor snippets." })
+
+-- When used in visual mode prefills the selection as body.
+vim.keymap.set({ "n", "x" }, "<leader>ns", function()
+  require("scissors").addNewSnippet()
+end)

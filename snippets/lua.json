@@ -1,0 +1,1 @@
+{"map":{"body":"map(\"${1:modes}\", \"${2:keymap}\", \"${3:command}\", { desc = \"${4:description}\" })$0","prefix":"map"}}
