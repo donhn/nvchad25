@@ -15,5 +15,8 @@ return {
       NOTE = { icon = " ", color = "hint", alt = { "INFO" } },
     },
     merge_keywords = false,
+    search = {
+      pattern = [[\b(KEYWORDS)\([a-zA-Z0-9_]+\):]],
+    },
   },
 }
