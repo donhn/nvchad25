@@ -5,3 +5,6 @@ vim.opt.clipboard = ""
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.colorcolumn = "81,101,121"
+
+-- For Obsidian
+vim.opt.conceallevel = 1
