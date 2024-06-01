@@ -7,8 +7,8 @@ local is_unix = vim.fn.has "unix"
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
   once = true,
   callback = function()
-    if is_windows == 1 and not is_wsl == 1 then
-      print "Using Windows clipboard."
+    if is_windows == 1 and is_wsl == 0 then
+      -- print "Using Windows clipboard."
       vim.g.clipboard = {
         copy = {
           ["+"] = "win32yank.exe -i --crlf",
@@ -63,7 +63,7 @@ vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
 
 -- powershell
 if is_windows == 1 and is_wsl == 0 then
-  print "Running in Windows environment."
+  -- print "Running in Windows environment."
   -- Set shell to powershell.exe
   vim.o.shell = "pwsh.exe"
 
@@ -82,9 +82,9 @@ if is_windows == 1 and is_wsl == 0 then
 end
 
 -- Identify shader files as glsl.
-vim.cmd [[
-  au BufRead,BufNewFile *.vert,*.frag,*.geom set filetype=glsl
-]]
+-- vim.cmd [[
+--   au BufRead,BufNewFile *.vert,*.frag,*.geom set filetype=glsl
+-- ]]
 
 -- Turn off colorcolumn for text files.
 vim.cmd [[
