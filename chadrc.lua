@@ -9,7 +9,7 @@ M.ui = {
     separator_style = "arrow",
   },
 
-  theme = "gruvbox",
+  theme = "everforest",
   hl_override = {
     IndentBlanklineContextChar = {
       fg = "#d5c4a1",
