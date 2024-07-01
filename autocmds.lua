@@ -90,3 +90,14 @@ vim.cmd [[
 vim.cmd [[
   au BufRead,BufNewFile *.txt,*.log set colorcolumn=0
 ]]
+
+-- Persisted
+local persisted_group = vim.api.nvim_create_augroup("PersistedHooks", {})
+
+vim.api.nvim_create_autocmd({ "User" }, {
+  pattern = "PersistedTelescopeLoadPost",
+  group = persisted_group,
+  callback = function(session)
+    vim.fn.system('git -C "$HOME/' .. session.data.dir_path .. '" switch ' .. session.data.branch)
+  end,
+})
