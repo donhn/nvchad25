@@ -28,6 +28,7 @@ return {
       cpp = { "clang_format" },
       cmake = { "cmake_format" },
       sh = { "beautysh" },
+      json = { "fixjson" },
     },
     format_on_save = function(bufnr)
       -- Disable with a global or buffer-local variable
