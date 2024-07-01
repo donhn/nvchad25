@@ -19,6 +19,7 @@ map("n", "<C-k>", ":horizontal resize +5<CR>", { desc = "increase horizontal siz
 map({ "n", "v" }, "x", '"_x', { desc = "blackhole delete" })
 
 map("n", "<leader>ftd", ":TodoTelescope keywords=TODO<CR>", { desc = "List TODOs" })
+map("n", "<leader>fs", ":Telescope persisted<CR>", { desc = "List sessions" })
 map("n", "<leader>gg", ":LazyGit<CR>", { desc = "LazyGit" })
 
 ---------------------------------------------------------------------
