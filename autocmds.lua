@@ -101,3 +101,15 @@ vim.api.nvim_create_autocmd({ "User" }, {
     vim.fn.system('git -C "$HOME/' .. session.data.dir_path .. '" switch ' .. session.data.branch)
   end,
 })
+
+vim.api.nvim_create_autocmd({ "User" }, {
+  pattern = "PersistedTelescopeLoadPre",
+  group = persisted_group,
+  callback = function(session)
+    -- Save the currently loaded session using a global variable
+    require("persisted").save { session = vim.g.persisted_loaded_session }
+
+    -- Delete all of the open buffers
+    vim.api.nvim_input "<ESC>:%bd!<CR>"
+  end,
+})
