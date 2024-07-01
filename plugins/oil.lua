@@ -4,6 +4,9 @@ return {
   cmd = "Oil",
   config = function()
     require("oil").setup {
+      view_options = {
+        show_hideen = true,
+      },
       keymaps = {
         ["g?"] = "actions.show_help",
         ["<CR>"] = "actions.select",
