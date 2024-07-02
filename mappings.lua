@@ -22,6 +22,22 @@ map("n", "<leader>ftd", ":TodoTelescope keywords=TODO<CR>", { desc = "List TODOs
 map("n", "<leader>fs", ":Telescope persisted<CR>", { desc = "List sessions" })
 map("n", "<leader>gg", ":LazyGit<CR>", { desc = "LazyGit" })
 
+map("n", "<leader>cfp", function()
+  vim.fn.setreg("+", vim.fn.expand "%:p:~")
+end, { desc = "Copy full path to clipboard" })
+
+map("n", "<leader>cfd", function()
+  vim.fn.setreg("+", vim.fn.expand "%:p:~:h")
+end, { desc = "Copy directory path to clipboard" })
+
+map("n", "<leader>crp", function()
+  vim.fn.setreg("+", vim.fn.expand "%:~:.")
+end, { desc = "Copy relative path to clipboard" })
+
+map("n", "<leader>cfn", function()
+  vim.fn.setreg("+", vim.fn.expand "%:t")
+end, { desc = "Copy file name to clipboard" })
+
 ---------------------------------------------------------------------
 -- LSP
 ---------------------------------------------------------------------
