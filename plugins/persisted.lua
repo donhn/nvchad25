@@ -6,7 +6,7 @@ return {
       on_autoload_no_session = function()
         vim.notify "No existing session to load."
       end,
-      silent = true,
+      silent = false,
       use_git_branch = true,
       ignored_branches = { "^main" },
     }

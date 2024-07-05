@@ -107,7 +107,9 @@ vim.api.nvim_create_autocmd({ "User" }, {
   group = persisted_group,
   callback = function(session)
     -- Save the currently loaded session using a global variable
-    require("persisted").save { session = vim.g.persisted_loaded_session }
+    if vim.g.persisted_loaded_session then
+      require("persisted").save { session = vim.g.persisted_loaded_session }
+    end
 
     -- Delete all of the open buffers
     vim.api.nvim_input "<ESC>:%bd!<CR>"
