@@ -1,7 +1,7 @@
 return {
   "echasnovski/mini.nvim",
   version = false,
-  keys = { "sa", "sd", "sf", "sF", "sH", "sr", "sn" },
+  keys = { "sa", "sd", "sf", "sF", "sH", "sr", "sn", "ga", "gA" },
   config = function()
     require("mini.surround").setup {
       mappings = {
@@ -17,5 +17,6 @@ return {
         suffix_next = "n", -- Suffix to search with "next" method
       },
     }
+    require("mini.align").setup()
   end,
 }
